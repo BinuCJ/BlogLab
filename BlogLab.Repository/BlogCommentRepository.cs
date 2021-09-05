@@ -72,7 +72,7 @@ namespace BlogLab.Repository
             return blogComment;
         }
 
-        public async Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationId)
+        public async Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationUserId)
         {
             var datatable = new DataTable();
             datatable.Columns.Add("BlogCommentId", typeof(int));
@@ -89,7 +89,8 @@ namespace BlogLab.Repository
 
                 newBlogCommentId = await connection.ExecuteScalarAsync<int?>(
                     "BlogComment_Upsert",
-                    new { photoId = datatable.AsTableValuedParameter("dbo.BlogCommentType") },
+                    new { BlogComment = datatable.AsTableValuedParameter("dbo.BlogCommentType"),
+                    ApplicationUserId = applicationUserId},
                     commandType: CommandType.StoredProcedure
                     );
             }
