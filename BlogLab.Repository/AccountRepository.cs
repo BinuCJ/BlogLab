@@ -35,7 +35,7 @@ namespace BlogLab.Repository
 
             dataTable.Rows.Add(
                 user.Username,
-                user.NormalizedEmail,
+                user.NormalizedUsername,
                 user.Email,
                 user.NormalizedEmail,
                 user.FullName,
@@ -61,7 +61,7 @@ namespace BlogLab.Repository
             {
                 await connection.OpenAsync(cancellationToken);
 
-                applicationUser = await connection.QuerySingleOrDefaultAsync<ApplicationUserIdentity>("Account_GetByUsername", new { NormalizedUsername = normalizedUsername }, commandType: CommandType.StoredProcedure);               
+                applicationUser = await connection.QuerySingleOrDefaultAsync<ApplicationUserIdentity>("Account_GetByUsername", new { NormalisedUsername = normalizedUsername }, commandType: CommandType.StoredProcedure);               
 
             }
             return applicationUser;

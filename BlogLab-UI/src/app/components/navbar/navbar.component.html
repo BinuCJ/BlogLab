@@ -20,15 +20,15 @@
             <li class="nav-item" *ngIf="!accountService.isLoggedIn()">
                 <a class="nav-link" routerLink='/login' routerLinkActive='active'>Login</a>
             </li>
-        </ul>
+        </ul> 
 
-        <div class=" btn-group" *ngIf="!accountService.isLoggedIn()"> 
+        <div class=" btn-group" dropdown *ngIf="accountService.isLoggedIn()"> 
             <button id="button-animated"
             dropdownToggle
             type="button"
             class="btn btn-primary dropdown-toggle"
             aria-controls="dropdown-animated">
-            Welcome {{accountService.currentUserValue}}! <span class="caret"></span>
+            Welcome {{accountService.currentUserValue.username}} ! <span class="caret"></span>
             </button>
             <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu"
             aria-labelledby="button-animated">

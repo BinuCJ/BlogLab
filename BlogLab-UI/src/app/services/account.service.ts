@@ -21,7 +21,7 @@ export class AccountService {
   }
 
   login(model: ApplicationUserLogin): Observable<ApplicationUser> {
-    return this.http.post(`${environment.webApi}/Account//login`, model).pipe(
+    return this.http.post(`${environment.webApi}/Account/login`, model).pipe(
       map((user: any) => {
 
         if (user) {
@@ -34,7 +34,7 @@ export class AccountService {
   }
 
   register(model: ApplicationUserCreate): Observable<ApplicationUser> {
-    return this.http.post(`${environment.webApi}/Account//register`, model).pipe(
+    return this.http.post(`${environment.webApi}/Account/register`, model).pipe(
       map((user: any) => {
 
         if (user) {
@@ -57,6 +57,8 @@ export class AccountService {
   public isLoggedIn() {
     const currentUser = this.currentUserValue;
     const isLoggedIn = !!currentUser && !!currentUser.token;
+    console.log("currentUser",currentUser)
+    console.log("isLoggedIn",isLoggedIn)
     return isLoggedIn;
   }
   logout() {

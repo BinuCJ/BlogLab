@@ -16,7 +16,7 @@ namespace BlogLab.Services
 
         public TokenService(IConfiguration config)
         {
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Kwt:Key"]));
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
             _issuer = config["Jwt:Issuer"];
         }
 
