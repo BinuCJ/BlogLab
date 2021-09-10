@@ -8,7 +8,7 @@ export class Blog{
         public username: string,
         public publishDate: Date,
         public updateDate: Date,
-        public deleteConfirm?: number,
+        public deleteConfirm?: boolean,
         public photoId?: number
     ){
 
