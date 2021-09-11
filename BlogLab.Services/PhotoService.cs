@@ -2,6 +2,7 @@
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace BlogLab.Services
     {
         private readonly Cloudinary _cloudinary;
 
-        public PhotoService(IOptions<CloudinaryOptions> config)
+        public PhotoService(IConfiguration config)
         {
-            var account = new Account(config.Value.CloudName, config.Value.ApiKey, config.Value.ApiSecret);
+            var account = new Account(config["CloudinaryOptions:CloudName"], config["CloudinaryOptions:ApiKey"], config["CloudinaryOptions:ApiSecret"]);
 
             _cloudinary = new Cloudinary(account);
         }

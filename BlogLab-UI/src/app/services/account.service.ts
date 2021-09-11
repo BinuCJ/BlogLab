@@ -57,8 +57,6 @@ export class AccountService {
   public isLoggedIn() {
     const currentUser = this.currentUserValue;
     const isLoggedIn = !!currentUser && !!currentUser.token;
-    console.log("currentUser",currentUser)
-    console.log("isLoggedIn",isLoggedIn)
     return isLoggedIn;
   }
   logout() {
