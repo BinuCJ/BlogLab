@@ -17,6 +17,7 @@
                 [typeahead]="userPhotos"
                 typeaheadOptionField="description"
                 [typeaheadScrollable]="true"
+                [typeaheadOptionsInScrollableView]="5"
                 (typeaheadOnSelect)="onSelect($event)"
                 placeholder="Choose optional photo"
                 class="form-control form-control-lg"

@@ -50,6 +50,15 @@ export class BlogEditComponent implements OnInit {
 
     this.photoService.getByApplicationUserId().subscribe(userPhotos => {
       this.userPhotos = userPhotos;
+    
+      let photoId =this.blogForm.value.photoId;
+      if (photoId) {
+      let photoDescription = this.getPhoto(photoId)?.description;
+      this.blogForm.patchValue({
+        ...this.blogForm.value,
+        photoDescription: photoDescription
+      })
+      }
 
     });
 
