@@ -29,10 +29,10 @@
             <tbody>
                 <tr *ngFor="let userBlog of userBlogs">
                     <td>
-                        {{userBlog.title | summary:30}}
+                        {{userBlog.title | summary:25}}
                     </td>
                     <td>
-                        {{userBlog.content | summary:90}}
+                        {{userBlog.content | summary:80}}
                     </td>
                     <td>
                         <button class = "btn btn-info d-inline mr-1" (click)="editBlog(userBlog.blogId)">

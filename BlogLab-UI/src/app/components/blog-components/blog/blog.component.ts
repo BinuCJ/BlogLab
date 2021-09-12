@@ -22,17 +22,19 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     const blogId = parseInt(this.route.snapshot.paramMap.get('id') || '{}');
+    console.log("blogId", this.route.snapshot.paramMap.get('id'))
+    if (!isNaN(blogId)) {
+      this.blogService.get(blogId).subscribe(blog => {
+        this.blog = blog;
 
-    this.blogService.get(blogId).subscribe(blog => {
-      this.blog = blog;
+        if (!!this.blog.photoId) {
+          this.photoService.get(this.blog.photoId).subscribe(photo => {
 
-      if (!!this.blog.photoId) {
-        this.photoService.get(this.blog.photoId).subscribe(photo => {
-
-          this.blogPhotoUrl = photo.imageUrl;
-        })
-      }
-    })
+            this.blogPhotoUrl = photo.imageUrl;
+          })
+        }
+      })
+    }
   }
 
 }
