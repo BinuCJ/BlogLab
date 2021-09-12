@@ -42,7 +42,7 @@ namespace BlogLab.Web.Controllers
         }
 
         [Authorize]
-        [HttpGet("{blogCommentId}")]
+        [HttpDelete("{blogCommentId}")]
         public async Task<ActionResult<int>> Delete(int blogCommentId)
         {
             int applicationUserId = int.Parse(User.Claims.First(i => i.Type == JwtRegisteredClaimNames.NameId).Value);
