@@ -41,8 +41,11 @@ namespace BlogLab.Web.Controllers
 
             if (result.Succeeded)
             {
+                 applicationUserIdentity = await _userManager.FindByNameAsync(applicationUserCreate.Username);
+
                 ApplicationUser user = new ApplicationUser()
                 {
+
                     ApplicationUserId = applicationUserIdentity.ApplicationUserId,
                     Username = applicationUserIdentity.Username,
                     Email = applicationUserIdentity.Email,
