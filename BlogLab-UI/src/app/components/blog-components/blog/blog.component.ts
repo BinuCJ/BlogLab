@@ -22,7 +22,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     const blogId = parseInt(this.route.snapshot.paramMap.get('id') || '{}');
-    console.log("blogId", this.route.snapshot.paramMap.get('id'))
+    console.log("this.route.snapshot.paramMap", this.route.snapshot.paramMap)
     if (!isNaN(blogId)) {
       this.blogService.get(blogId).subscribe(blog => {
         this.blog = blog;

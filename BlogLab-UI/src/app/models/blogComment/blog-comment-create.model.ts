@@ -3,7 +3,7 @@ export class BlogCommentCreate {
         public blogCommentId: number,
         public blogId: number,
         public content: string,
-        public parentBlogCommentId?: string,
+        public parentBlogCommentId?: number,
         
     ){
 
